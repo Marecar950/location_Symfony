@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card bg-light">
+        <div class="card-body">
+          <h3 class="text-center mb-4">Rechercher des véhicules disponibles</h3>
+          {{ form_start(form) }}
+            {{ form_row(form.dateDepart) }}
+            {{ form_row(form.dateRetour) }}
+            {{ form_row(form.prixMaxLocation) }}
+            <button type="submit" class="btn btn-primary btn-lg form-control">Rechercher</button>
+          {{ form_end(form) }}
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>          

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de disponibilite{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card bg-light">
+            <div class="card-body">
+                <h3 class="text-center mb-4">Modification de disponibilité</h3>
+                
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_vehicule_show', {'id': vehiculeId}) }}" class="btn btn-lg btn-secondary">Retour</a>
+                    <button type="submit" class="btn btn-lg btn-primary">Modifier</button> 
+                 </div>
+                {{ form_end(form) }}
+            </div>    
+          </div>
+        </div>            
+      </div>
+    </div>
+{% endblock %}

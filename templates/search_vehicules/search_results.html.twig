@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include ('search_vehicules/search.html.twig') %}
+
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+
+         {% if vehiculesDisponibles is not empty %}
+          <table class="table table-striped table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>Marque</th>
+                    <th>Modèle</th>
+                    <th>Date de début</th>
+                    <th>Date de fin</th>
+                    <th>Prix par jour</th>
+                    <th>Prix de la location</th>
+                </tr>    
+            </thead>
+            <tbody>
+            {% for vehiculeData in vehiculesDisponibles %}
+                {% set vehicule = vehiculeData.0.vehicule %}
+                <tr>
+                    <td>{{ vehicule.marque }}</td>
+                    <td>{{ vehicule.modele }}</td>
+                    <td>{{ vehiculeData.0.dateDebut|date('Y-m-d') }}</td>
+                    <td>{{ vehiculeData.0.dateFin|date('Y-m-d') }}</td>
+                    <td>{{ vehiculeData.0.prixParJour }} €</td>
+                    <td>{{ vehiculeData.prix_location }} €</td>
+                </tr>
+            {% endfor %} 
+            </tbody>  
+          </table>        
+          {% else %}
+            {%  if showNoResultsMessage %}
+              <p class="text-center"><strong>Aucun résultat</strong></p>
+            {% endif %}    
+          {%  endif %}
+
+        </div>
+      </div>    
+    </div>   
+
+{% endblock %}
